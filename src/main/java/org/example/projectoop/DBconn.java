@@ -1,9 +1,6 @@
 package org.example.projectoop;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBconn {
     private static Connection con;
@@ -17,5 +14,20 @@ public class DBconn {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void Add(String fname,int mark1, int mark2) throws SQLException {
+        float total = (float) (mark1 + mark2) /2;
+        String query = "insert into Marks (Fname, Mark1,Mark2, Total) Values( "+"'"+fname+"'"+","+mark1+","+mark2 +","+total+")";
+        try {
+            Statement stm = con.createStatement();
+            stm.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public ResultSet show() throws SQLException {
+        String query = "Select * from Marks";
+        Statement stm = con.createStatement();
+        return stm.executeQuery(query);
     }
 }

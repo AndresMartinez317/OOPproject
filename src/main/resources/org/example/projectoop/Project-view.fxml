@@ -1,39 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectoop.HelloController">
   <tabs>
-    <Tab text="Untitled Tab 1">
+    <Tab text="Register">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
                   <TextField fx:id="nametxt" layoutX="367.0" layoutY="54.0" />
-                  <TextField fx:id="mark1txt" layoutX="367.0" layoutY="112.0" />
-                  <TextField fx:id="mark2txt" layoutX="367.0" layoutY="173.0" />
-                  <TextField fx:id="totaltxt" layoutX="367.0" layoutY="237.0" />
                   <Label layoutX="179.0" layoutY="58.0" text="Name" />
                   <Label layoutX="179.0" layoutY="116.0" text="Mark1" />
                   <Label layoutX="179.0" layoutY="177.0" text="Mark2" />
-                  <Label layoutX="179.0" layoutY="241.0" text="Total" />
-                  <Button layoutX="207.0" layoutY="290.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="367.0" layoutY="290.0" mnemonicParsing="false" onAction="#Submit" text="Button" />
+                  <Button layoutX="274.0" layoutY="288.0" mnemonicParsing="false" onAction="#Submit" text="Submit" />
+                  <ChoiceBox fx:id="mark1" layoutX="367.0" layoutY="121.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="mark2" layoutX="367.0" layoutY="173.0" prefWidth="150.0" />
                </children>
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Untitled Tab 2">
+    <Tab text="Barchart">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BarChart fx:id="barChart" layoutX="29.0" layoutY="17.0" prefHeight="283.0" prefWidth="541.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <Button fx:id="Load" layoutX="274.0" layoutY="300.0" mnemonicParsing="false" onAction="#Chart" text="Reload" />
+               </children></AnchorPane>
       </content>
     </Tab>
+      <Tab text="Table">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="56.0" layoutY="27.0" prefHeight="318.0" prefWidth="489.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="ID" />
+                      <TableColumn prefWidth="75.0" text="Fname" />
+                        <TableColumn prefWidth="75.0" text="Mark1" />
+                        <TableColumn prefWidth="75.0" text="Mark2" />
+                        <TableColumn prefWidth="75.0" text="Total" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
   </tabs>
 </TabPane>

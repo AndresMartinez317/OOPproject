@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Project-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 440);
         stage.setTitle("OOP project");
         stage.setScene(scene);
         stage.show();
@@ -19,9 +19,5 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) throws ClassNotFoundException {
         launch();
-        DBconn db = new DBconn();
-        db.Connect();
-
-
     }
 }
